@@ -3,12 +3,12 @@ import { DefaultFooter } from '@ant-design/pro-layout';
 
 export default () => (
   <DefaultFooter
-    copyright="Ant Design Pro"
+    copyright="2022. InstaShare"
     links={[
       {
         key: 'github',
         title: <GithubOutlined />,
-        href: 'https://github.com/ant-design/ant-design-pro',
+        href: 'https://github.com/cdonis/instashare',
         blankTarget: true,
       },
       {

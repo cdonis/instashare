@@ -4,7 +4,8 @@ const Settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
 } = {
-  title: 'Ant Design Pro',
+  title: 'InstaShare',
+  //logo: '',
   iconfontUrl: '',
   navTheme: 'light',
   primaryColor: '#1890ff',
