@@ -2,6 +2,8 @@ export default {
   'common.accept': 'Aceptar',
   'common.cancel': 'Cancelar',
   'common.delete': 'Eliminar',
+  'common.upload': 'Subir fichero',
+  'common.download': 'Descargar',
   'common.batchDeletion': 'Eliminar seleccionados',
   'common.update': 'Actualizar',
   'common.name': 'Nombre',
@@ -20,4 +22,7 @@ export default {
   'common.group': 'Grupo',
   'common.order': 'Orden',
   'common.yes': 'Si',
+  'common.filter': 'Filtrar',
+  'common.reset': 'Resetear',
+  'common.search_in': 'Buscar en',
 };

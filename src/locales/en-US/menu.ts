@@ -45,15 +45,4 @@ export default {
   'menu.editor.flow': 'Flow Editor',
   'menu.editor.mind': 'Mind Editor',
   'menu.editor.koni': 'Koni Editor',
-
-  // Clipro menu
-  'menu.cliproadmin': 'Admin',
-  'menu.cliproadmin.cliproadmin.banks': 'Banks',
-  'menu.cliproadmin.cliproadmin.bankOffices': 'Bank offices',
-  'menu.cliproadmin.cliproadmin.contactTypes': 'Contact types',
-  'menu.cliproadmin.cliproadmin.currencies': 'Currencies',
-  'menu.cliproadmin.cliproadmin.entityTypes': 'Entity types',
-  'menu.cliproadmin.cliproadmin.employeesPositions': 'Employees positions',
-  'menu.cliproadmin.cliproadmin.organizations': 'Organizations',
-  'menu.cliproadmin.cliproadmin.entities': 'Entities',
 };

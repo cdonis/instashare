@@ -1,11 +1,6 @@
 import { RequestConfig, RunTimeLayoutConfig, history } from 'umi';
-//import { request as requestUmi } from 'umi';
-
 import type { RequestInterceptor, ResponseError } from 'umi-request';
-
 import { Modal, notification } from 'antd';
-//import { cloneDeep, merge } from 'lodash';
-import { stringify } from 'querystring';
 
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import { PageLoading } from '@ant-design/pro-layout';
@@ -41,15 +36,7 @@ export async function getInitialState(): Promise<{
                 okText: 'OK'
             });
 
-            const { pathname } = history.location;
-            if (window.location.pathname !== '/user/login') {
-                history.replace({
-                    pathname: '/user/login',
-                    search: stringify({
-                        redirect: pathname,
-                    }),
-                });
-            }
+            if (redirect) history.push(loginPath);
         }
         return undefined;
     };

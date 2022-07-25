@@ -1,6 +1,8 @@
-import { getColumnSearchProps, formatNumber, getSummaryRow } from './forTables';
+import { getColumnSearchProps } from './forTables';
 import { RequestResponse } from 'umi-request';
 import { message, Modal } from 'antd';
+
+export { getColumnSearchProps };
 
 /* eslint no-useless-escape:0 import/prefer-default-export:0 */
 const reg =
@@ -25,12 +27,12 @@ export const isAntDesignProOrDev = (): boolean => {
 };
 
 /**
- * Transforma una fecha dada como cadena u objeto Date en el formato de salida especificado
- * @author Carlos Donis <cdonisdiaz@gmail.com>
- * @param date    (string | Date): Cadena o fecha original de la cual se desea obtener la nueva cadena formateada
- * @param format  (string):        Formato de salida deseado. Subcadenas aceptadas:
- *                                "DD" (dia), "MM" (mes), "YYYY" (año), "h" (hora), "i" (minutos), "s" (segundos)
- *                                Ejemplos: "DD-MM-YYYY", "DD-MM-YYYY h:i:s"
+ * Transform a string or date and return a string representing a date with a desired output format
+ * 
+ * @param date    (string | Date): Original string or date
+ * @param format  (string):        Output format. Accepted:
+ *                                 "DD" (day), "MM" (month), "YYYY" (year), "h" (hour), "i" (minutes), "s" (seconds)
+ *                                 Ex.: "DD-MM-YYYY", "DD-MM-YYYY h:i:s"
  * @returns       string | undefined
  */
 export const formatDate = (date: string | Date, format: string): string | undefined => {
@@ -60,8 +62,23 @@ export const formatDate = (date: string | Date, format: string): string | undefi
 };
 
 /**
- * @author Carlos Donis <cdonisdiaz@gmail.com>
- * @param number length
+ * Transform a number to a decimal "en-us" locale format
+ * 
+ * @param number 
+ * @param precision 
+ * @returns string
+ */
+export const formatNumber = (
+    number: number | bigint | undefined, 
+    precision: number
+  ): string => (number !== undefined && number !== null) 
+      ? new Intl.NumberFormat("en-us", {style: 'decimal', useGrouping: true, minimumFractionDigits: precision}).format(number)
+      : "-"
+
+/**
+ * Return a ramdom string
+ * 
+ * @param length String length
  * @returns string Cadena aleatoria formada por caracteres y números
  */
 export const getRandomString = (length: number): string => {
@@ -73,54 +90,44 @@ export const getRandomString = (length: number): string => {
   return result;
 };
 
-export { getColumnSearchProps, formatNumber, getSummaryRow };
-
-/*
-  Función con el comportamiento en el then de una petición para descarga de archivos
+/**
+ * Get blob from API request result and trigger browser download
 */
 export const downloadFileTrait = (res: RequestResponse, filename?: string) => {
+// Get blob from response
   const blob = res.data;
   const link = document.createElement('a');
   link.href = window.URL.createObjectURL(blob);
-
-  // Inicializa con el nombre del parámetro
-  let filenameX = filename;
-
-  // Si no tengo nombre trato de capturar el de la cabecera de respuesta de la petición
-  // Sacado de stackoverflow
-  if (!filenameX) {
-    const disposition = res.response.headers.get('Content-Disposition');
-    if (disposition && disposition.indexOf('attachment') !== -1) {
-      const filenameRegex = /filename[^;=\n]*=((['"]).*?\2|[^;\n]*)/;
-      const matches = filenameRegex.exec(disposition);
-      if (matches != null && matches[1]) {
-        filenameX = matches[1].replace(/['"]/g, '');
-      }
+  
+  // If no filename, try to get it from response header
+  let _filename = filename;
+  if (! _filename) {
+    const contentDisposition = res.response.headers.get('Content-Disposition');
+    if (contentDisposition !== null) {
+        _filename = contentDisposition.split('filename=')[1].split(';')[0];
     }
   }
 
-  // Si aún no hay nombre pongo uno x defecto, este caso no se debería dar
-  if (!filenameX) {
-    filenameX = 'documento-adjunto';
-  }
+  // Set name for the download
+  link.download = _filename || 'myFile.zip';
 
-  link.download = filenameX;
+  // Trigger browser download
   link.click();
 };
 
 export const handleCatchErrorForm = (error: any) => {
   if (error.data.errorCode === '422') {
-    const errors = error.data.data.errors;
-    let errorMessages = `Errores detectados: \n`;
-    Object.keys(error.data.data.errors).forEach((field) => {
+    const errors = error.data.data;
+    let errorMessages = `Detected errors: \n`;
+    Object.keys(error.data.data).forEach((field) => {
       errorMessages += '- ' + errors[field][0] + `\n`;
     });
-    errorMessages += `\n Por favor, modifique los datos introducidos e inténtelo nuevamente.`;
+    errorMessages += `\n Please modify data and try again.`;
     Modal.error({
       centered: true,
       width: 'lg',
       title:
-        'No fue posible realizar la acción sobre el elemento, existen errores en los datos proporcionados',
+        'Request failed. Errors in input data were detected',
       content: <span style={{ whiteSpace: 'pre-line' }}>{errorMessages}</span>,
     });
     return;
@@ -128,15 +135,16 @@ export const handleCatchErrorForm = (error: any) => {
 
   if (error.data.errorCode === '409') {
     const contentText =
-      'El elemento que intenta eliminar está siendo utilizado por otro recurso.\n' +
-      'Por favor, elimine primero esta dependencia e intente nuevamente la operación.';
+      'Resource can\'t be deleted, it is been used by other(s) resource(s).\n' +
+      'Please remove dependency and try again.';
     Modal.error({
       centered: true,
       width: 'lg',
-      title: 'Ocurrió un error durante la operación',
+      title: 'Request error',
       content: <span style={{ whiteSpace: 'pre-line' }}>{contentText}</span>,
     });
     return;
   }
-  message.error('No fue posible realizar la acción sobre el elemento. Inténtelo nuevamente.');
+
+  message.error('An error ocurrs during request, please try again.');
 };

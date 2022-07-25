@@ -24,10 +24,16 @@ declare namespace API {
   };
 
   type UpdatePasswordFields = {
-    email?: string;
-    password?: string;
-    n_password?: string;
-    c_password?: string;
+    password: string;
+    n_password: string;
+    c_password: string;
+  };
+
+  type SignUpParams = {
+    email: string;
+    name?: string;
+    password: string;
+    c_password: string;
   };
 
   type LoginParams = {
@@ -39,5 +45,23 @@ declare namespace API {
     user_id: number;
     name: string;
     token: string;
+  };
+
+  type File = {
+    id?: number;
+    name?: string;
+    md5?: string;
+    status?: string;
+    size?: number;
+    created_at?: string;
+    updated_at?: string;
+    user_id?: number;
+  };
+
+  type FilesList = {
+    data?: File[];
+    /** Number of elements */
+    total?: number;
+    success?: boolean;
   };
 }

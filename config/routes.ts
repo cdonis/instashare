@@ -22,7 +22,7 @@
   },
   {
     path: '/',
-    component: 'Home',
+    component: 'Files',
     menuRender: false,
     hideInMenu: true,
     exact: true,

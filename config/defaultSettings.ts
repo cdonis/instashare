@@ -4,10 +4,10 @@ const Settings: LayoutSettings & {
   pwa?: boolean;
   logo?: string;
 } = {
-  title: 'InstaShare',
-  //logo: '',
+  title: '',
+  logo: 'logo_white.png',
   iconfontUrl: '',
-  navTheme: 'light',
+  navTheme: 'dark',
   primaryColor: '#1890ff',
   layout: 'top',
   contentWidth: 'Fluid',

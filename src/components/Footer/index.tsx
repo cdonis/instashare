@@ -12,9 +12,9 @@ export default () => (
         blankTarget: true,
       },
       {
-        key: 'Ant Design',
-        title: 'Ant Design',
-        href: 'https://ant.design',
+        key: 'instashare',
+        title: 'InstaShare CE',
+        href: 'https://www.instsharece.com',
         blankTarget: true,
       },
     ]}

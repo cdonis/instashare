@@ -25,6 +25,18 @@ export async function updatePassword(
   });
 }
 
+/** Sign up user POST /api/admin/auth/signup */
+export async function signUp(body: API.SignUpParams, options?: { [key: string]: any }) {
+  return request<API.LoginResult>('/api/admin/auth/signup', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    data: body,
+    ...(options || {}),
+  });
+}
+
 /** Sign in POST /api/admin/auth/login */
 export async function login(body: API.LoginParams, options?: { [key: string]: any }) {
   return request<API.LoginResult>('/api/admin/auth/login', {

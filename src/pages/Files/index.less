@@ -1,0 +1,34 @@
+@mobile: ~'only screen and (max-width: 767px)';
+@desktop: ~'only screen and (min-width: 768px)';
+@backgroundModal: #f0f2f5;
+
+/*
+.files-page-header {
+    .ant-page-header {
+        background-image: url('/header_background.jpg');
+    }
+}
+*/
+
+.ant-pro-top-nav-header {
+    background-image: url('/header_background.jpg');
+}
+
+.instashare-pro-table {
+    .ant-pro-table-list-toolbar-left {
+      @media @desktop {
+        gap: 0px !important;
+        width: 100%;
+        margin-right: 20px;
+      }
+      @media @mobile {
+        width: 100% !important;
+      }
+      .ant-space-item:nth-child(2) {
+        width: 100%;
+      }
+      .ant-input-search {
+        width: 100% !important;
+      }
+    }
+  }

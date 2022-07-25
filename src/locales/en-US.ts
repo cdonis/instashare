@@ -1,16 +1,10 @@
-import component from './en-US/component';
 import globalHeader from './en-US/globalHeader';
-import menu from './en-US/menu';
 import pwa from './en-US/pwa';
-import settingDrawer from './en-US/settingDrawer';
 import settings from './en-US/settings';
-import pages from './en-US/pages';
-import admin from './en-US/admin';
+import filesPage from './en-US/filesPage';
 import common from './en-US/common';
-import clipro from './en-US/clipro';
-import audit from './en-US/audit';
-import core from './en-US/core';
-import contracts from './en-US/contracts';
+import menu from './en-US/menu';
+import uploadForm from './en-US/uploadForm';
 
 export default {
   'navBar.lang': 'Languages',
@@ -21,16 +15,10 @@ export default {
   'app.welcome.link.fetch-blocks': 'Get all block',
   'app.welcome.link.block-list': 'Quickly build standard, pages based on `block` development',
   ...globalHeader,
-  ...menu,
-  ...settingDrawer,
   ...settings,
   ...pwa,
-  ...component,
-  ...pages,
-  ...admin,
   ...common,
-  ...clipro,
-  ...audit,
-  ...core,
-  ...contracts,
+  ...menu,
+  ...filesPage,
+  ...uploadForm,
 };

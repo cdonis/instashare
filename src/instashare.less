@@ -1,0 +1,137 @@
+@mobile: ~'only screen and (max-width: 767px)';
+@desktop: ~'only screen and (min-width: 768px)';
+@backgroundModal: #f0f2f5; //F0F0F0 //ebebe1; //#fafafa;
+
+.instashare-ant-modal {
+  @media @desktop {
+    width: 60% !important;
+  }
+  @media @mobile {
+    width: 100% !important;
+  }
+  padding-bottom: 0px;
+  .ant-modal-body {
+    background-color: @backgroundModal;
+  }
+  .ant-modal-footer .ant-btn {
+    margin-top: 0px;
+  }
+  .ant-modal-close-icon {
+    color: black;
+  }
+  .ant-pro-form-group {
+    //float: left;
+    width: 100%;
+    margin-top: 20px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border: 1px solid #c2c2c2;
+  }
+  .ant-pro-form-group-title {
+    position: relative;
+    top: -13px;
+    left: 5px;
+    max-width: max-content;
+    margin-bottom: 0px !important;
+    padding: 0px 5px 0px 5px;
+    font-weight: normal;
+    background: @backgroundModal;
+  }
+  .update-button {
+    position: relative;
+    top: -6px;
+    height: 0;
+    color: black;
+    border: none;
+  }
+  .ant-form-item-label > label,
+  .item-label .label,
+  .label {
+    color: #074a77;
+  }
+  .ant-form-item {
+    margin-bottom: 16px;
+  }
+  .editable-fields-list-row {
+    .ant-form-item {
+      margin-bottom: 0px;
+    }
+  }
+  .ant-divider-horizontal {
+    margin: 16px 0;
+  }
+  .ant-tabs-content-holder {
+    height: 575px; //550px;
+    overflow-y: auto;
+  }
+  .ant-tabs-tabpane {
+    padding-top: 8px;
+  }
+  .ant-tabs {
+    border-top: 1px solid #b3b3b3;
+  }
+  .ant-tabs-tab {
+    margin-top: 0px !important;
+    border-bottom: 1px solid #b3b3b3;
+  }
+}
+
+.two-horizontal-form-items {
+  @media @desktop {
+    display: flex;
+  }
+  @media @mobile {
+    display: inherit;
+  }
+  gap: 2%;
+  justify-content: center;
+  width: 100%;
+  .ant-form-item {
+    flex-direction: row;
+    float: left;
+    @media @desktop {
+      width: 49%;
+    }
+    @media @mobile {
+      width: 100%;
+    }
+  }
+}
+
+.instashare-pro-table {
+  .ant-pro-table-list-toolbar-left {
+    @media @desktop {
+      gap: 0px !important;
+      width: 100%;
+      margin-right: 20px;
+    }
+    @media @mobile {
+      width: 100% !important;
+    }
+    .ant-space-item:nth-child(2) {
+      width: 100%;
+    }
+    .ant-input-search {
+      width: 100% !important;
+    }
+  }
+}
+
+.action-button {
+  cursor: pointer;
+}
+
+.editable-fields-list-header {
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px;
+  color: #074a77;
+  border-bottom: 1px solid #c9c9c9;
+}
+
+.ant-alert-icon {
+  align-self: baseline;
+  position: relative;
+  top: 5px;
+}

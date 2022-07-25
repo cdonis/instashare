@@ -48,15 +48,4 @@ export default {
   'menu.audit_operation': 'Operaciones',
   'menu.audit_operation.audit_operation_indexAll': 'Todas',
   'menu.audit_operation.audit_operation_index': 'Por tipo',
-
-  // Clipro menu
-  'menu.cliproadmin': 'Admin',
-  'menu.clipro.clipro-bank': 'Bancos',
-  'menu.cliproadmin.cliproadmin.bankOffices': 'Oficinas bancarias',
-  'menu.cliproadmin.cliproadmin.contactTypes': 'Tipos de contacto',
-  'menu.cliproadmin.cliproadmin.currencies': 'Monedas',
-  'menu.cliproadmin.cliproadmin.entityTypes': 'Tipos de entidad',
-  'menu.cliproadmin.cliproadmin.employeesPositions': 'Cargos de los funcionarios',
-  'menu.cliproadmin.cliproadmin.organizations': 'Organismos',
-  'menu.cliproadmin.cliproadmin.entities': 'Entidades',
 };
