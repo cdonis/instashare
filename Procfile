@@ -1,1 +1,1 @@
-web: npm start:no-mock
+web: npm run start
