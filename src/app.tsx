@@ -109,7 +109,7 @@ const errorHandler = (error: ResponseError) => {
 
         if (![422].includes(status))
             notification.error({
-                message: `Error requesting data ${status}: ${url}`,
+                message: `Error requesting data`,
                 description: errorText,
             });
     }
@@ -140,7 +140,7 @@ const authRequestInterceptor: RequestInterceptor = (url, options) => {
 
 // Plugin-request configuration
 export const request: RequestConfig = {
-    prefix: 'http://localhost',
+    prefix: 'https://instashare-cd.herokuapp.com', // `${process.env.API_URL}`
     errorHandler,
     requestInterceptors: [authRequestInterceptor],
 };

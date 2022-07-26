@@ -127,14 +127,6 @@ const Files: React.FC<any> = () => {
                                         }
                                     }
                                 })
-                                /*
-                                if (record.id) {
-                                    const success = await handleRemove(record.id || -1);
-                                    if (success) {
-                                        actionRef.current?.reloadAndRest?.();
-                                    }
-                                }
-                                */
                             }}
                         >
                             <DeleteOutlined />

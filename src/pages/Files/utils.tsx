@@ -9,18 +9,17 @@ import { message } from 'antd';
  */
  export const handleDownload = async (id: number, filename: string) => {
     const hide = message.loading('Please wait while downloading the file ...');
-    try {
-      downloadFile({id}, {responseType: 'blob', getResponse: true})
-        .then( (response) => {
-            downloadFileTrait(response, filename)
-            hide();
-        });
-      return true;
-    } catch (error: any) {
-      hide();
-      handleCatchErrorForm(error);
-      return false;
-    }
+    downloadFile({id}, {responseType: 'blob', getResponse: true})
+    .then( (response) => {
+        downloadFileTrait(response, filename)
+        hide();
+    })
+    .catch((error: any) => {
+        handleCatchErrorForm(error);
+        hide();
+    });
+
+    return true;
   };
 
 /**
