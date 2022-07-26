@@ -64,64 +64,7 @@ export function getRoutes() {
         "layout": false,
         "path": "/~docs",
         "wrappers": [dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/Work/Cuban Engineers/Recruitment process/Technical test/Application/instashare/node_modules/@umijs/preset-dumi/lib/theme/layout'), loading: LoadingComponent}), dynamic({ loader: () => import(/* webpackChunkName: 'wrappers' */'D:/Work/Cuban Engineers/Recruitment process/Technical test/Application/instashare/node_modules/dumi-theme-default/es/layout.js'), loading: LoadingComponent})],
-        "routes": [
-          {
-            "path": "/~docs",
-            "component": dynamic({ loader: () => import(/* webpackChunkName: 'README.md' */'D:/Work/Cuban Engineers/Recruitment process/Technical test/Application/instashare/README.md'), loading: LoadingComponent}),
-            "exact": true,
-            "meta": {
-              "locale": "en-US",
-              "order": null,
-              "filePath": "README.md",
-              "updatedTime": 499162500000,
-              "componentName": "instashare",
-              "slugs": [
-                {
-                  "depth": 1,
-                  "value": "Ant Design Pro",
-                  "heading": "ant-design-pro"
-                },
-                {
-                  "depth": 2,
-                  "value": "Environment Prepare",
-                  "heading": "environment-prepare"
-                },
-                {
-                  "depth": 2,
-                  "value": "Provided Scripts",
-                  "heading": "provided-scripts"
-                },
-                {
-                  "depth": 3,
-                  "value": "Start project",
-                  "heading": "start-project"
-                },
-                {
-                  "depth": 3,
-                  "value": "Build project",
-                  "heading": "build-project"
-                },
-                {
-                  "depth": 3,
-                  "value": "Check code style",
-                  "heading": "check-code-style"
-                },
-                {
-                  "depth": 3,
-                  "value": "Test code",
-                  "heading": "test-code"
-                },
-                {
-                  "depth": 2,
-                  "value": "More",
-                  "heading": "more"
-                }
-              ],
-              "title": "Ant Design Pro"
-            },
-            "title": "Ant Design Pro"
-          }
-        ],
+        "routes": [],
         "title": "instashare",
         "component": (props) => props.children
       },
@@ -145,13 +88,6 @@ export function getRoutes() {
       {
         "path": "/exception",
         "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Exception' */'D:/Work/Cuban Engineers/Recruitment process/Technical test/Application/instashare/src/pages/Exception'), loading: LoadingComponent}),
-        "exact": true
-      },
-      {
-        "path": "/index.html",
-        "component": dynamic({ loader: () => import(/* webpackChunkName: 'p__Files' */'D:/Work/Cuban Engineers/Recruitment process/Technical test/Application/instashare/src/pages/Files'), loading: LoadingComponent}),
-        "menuRender": false,
-        "hideInMenu": true,
         "exact": true
       },
       {
