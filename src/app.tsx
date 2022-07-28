@@ -140,7 +140,11 @@ const authRequestInterceptor: RequestInterceptor = (url, options) => {
 
 // Plugin-request configuration
 export const request: RequestConfig = {
-    prefix: 'https://instashare-cd.herokuapp.com', // `${process.env.API_URL}`
+    // Prefix values
+    // `${process.env.API_URL}`
+    // producción: 'https://instashare-cd.herokuapp.com',
+    // Docker dev: 'http://instashare-admin:8000'
+    prefix: 'http://instashare-admin:8000', 
     errorHandler,
     requestInterceptors: [authRequestInterceptor],
 };
