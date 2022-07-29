@@ -116,7 +116,7 @@ export const downloadFileTrait = (res: RequestResponse, filename?: string) => {
 };
 
 export const handleCatchErrorForm = (error: any) => {
-  if (error.data.errorCode === '422') {
+  if (error && error.data && error.data.errorCode === '422') {
     const errors = error.data.data;
     let errorMessages = `Detected errors: \n`;
     Object.keys(error.data.data).forEach((field) => {
@@ -133,7 +133,7 @@ export const handleCatchErrorForm = (error: any) => {
     return;
   }
 
-  if (error.data.errorCode === '409') {
+  if (error && error.data && error.data.errorCode === '409') {
     const contentText =
       'Resource can\'t be deleted, it is been used by other(s) resource(s).\n' +
       'Please remove dependency and try again.';

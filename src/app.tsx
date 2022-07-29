@@ -143,8 +143,8 @@ export const request: RequestConfig = {
     // Prefix values
     // `${process.env.API_URL}`
     // producción: 'https://instashare-cd.herokuapp.com',
-    // Docker dev: 'http://instashare-admin:8000'
-    prefix: 'http://instashare-admin:8000', 
+    // Docker dev: 'http://docker.for.mac.localhost:8000'
+    prefix: 'http://127.0.0.1', 
     errorHandler,
     requestInterceptors: [authRequestInterceptor],
 };
