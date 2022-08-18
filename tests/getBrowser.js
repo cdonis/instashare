@@ -8,12 +8,15 @@ const getBrowser = async () => {
     const puppeteer = require('puppeteer');
     const browser = await puppeteer.launch({
       args: [
+        '--start-maximized',
         '--disable-gpu',
         '--disable-dev-shm-usage',
         '--no-first-run',
         '--no-zygote',
         '--no-sandbox',
       ],
+      defaultViewport: null,
+      headless: false,
     });
     return browser;
   } catch (error) {
@@ -28,12 +31,15 @@ const getBrowser = async () => {
     const browser = await puppeteer.launch({
       executablePath,
       args: [
+        '--start-maximized',
         '--disable-gpu',
         '--disable-dev-shm-usage',
         '--no-first-run',
         '--no-zygote',
         '--no-sandbox',
       ],
+      defaultViewport: null,
+      headless: false,
     });
     return browser;
   } catch (error) {
